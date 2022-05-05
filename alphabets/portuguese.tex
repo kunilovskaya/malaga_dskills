@@ -1,0 +1,41 @@
+\documentclass{article}
+
+%encoding
+%--------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%--------------------------------------
+
+%Portuguese-specific commands
+%--------------------------------------
+\usepackage[portuguese]{babel}
+%--------------------------------------
+
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+%--------------------------------------
+
+\begin{document}
+
+\tableofcontents
+
+\vspace{2cm} %Add a 2cm space
+
+\begin{abstract}
+Este é um breve resumo do conteúdo do documento escrito em Português.
+\end{abstract}
+
+\section{Seção introdutória}
+Esta é a primeira seção, podemos acrescentar alguns elementos adicionais 
+e tudo será escrito corretamente. Além disso, se uma palavra é um caminho 
+muito longo e tem de ser truncado, babel irá tentar truncar corretamente, 
+dependendo do idioma.
+
+\section{Segunda seção}
+Esta seção é para ver o que acontece com comandos de texto que definem
+
+\[ \lim x =  \theta + 152383.52 \]
+
+\end{document}

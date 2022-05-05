@@ -9,9 +9,6 @@
 *.gz
 *.vrb
 
-task2.tex
+task1-2.tex
 
-github/
-latex/
-mendeley/
 temp/

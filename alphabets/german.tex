@@ -1,0 +1,43 @@
+\documentclass{article}
+
+%encoding
+%--------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%--------------------------------------
+
+%German-specific commands
+%--------------------------------------
+\usepackage[ngerman]{babel}
+%--------------------------------------
+
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{Mathe-matik wieder-gewinnen}
+%--------------------------------------
+
+\begin{document}
+
+\tableofcontents
+
+\vspace{2cm} %Add a 2cm space
+
+\begin{abstract}
+Dies ist eine kurze Zusammenfassung der Inhalte des in deutscher Sprache
+verfassten Dokuments.
+\end{abstract}
+
+\section{Einleitendes Kapitel}
+Dies ist der erste Abschnitt. Hier können wir einige zusätzliche Elemente
+hinzufügen und alles wird korrekt geschrieben und umgebrochen werden. Falls ein
+Wort für eine Zeile zu lang ist, wird \texttt{babel} versuchen je nach Sprache
+richtig zu trennen.
+
+\section{Eingabe mit mathematischer Notation}
+In diesem Abschnitt ist zu sehen, was mit Macros, die definiert worden,
+geschieht.
+
+\[ \lim x =  \theta + 152383.52 \]
+
+\end{document}
