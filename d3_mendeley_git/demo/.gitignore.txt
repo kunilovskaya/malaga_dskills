@@ -1,0 +1,15 @@
+# data
+data/
+corpus/
+
+# Distribution / packaging
+temp/
+docs/
+dev/
+venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+

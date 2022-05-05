@@ -1,0 +1,223 @@
+% this is source code for one of the sessions in Digital Skills for Research Workshop (EMTTI, University of Wolverhampton)
+% March 2022, Maria Kunilovskaya (mkunilovskaya@gmail.com)
+
+\documentclass[a4paper,11pt,leqno]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=15mm,
+}
+\setlength\parindent{0pt} % set all indents to 0
+
+
+% multilingual support; load early in the preamble as some packages (e.g. listings) complain 
+%--------------------------------------
+\usepackage[T1,T2A]{fontenc}
+\usepackage[spanish,french,russian,main=english]{babel}
+%--------------------------------------
+
+\usepackage{tcolorbox}
+\usepackage{listings}  % a verbatim environment which can break lines unlike \verb||
+
+%\usepackage[hidelinks]{hyperref} % no linky content is visible at all, except if hovering a mouse
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan, filecolor=magenta]{hyperref}
+
+
+\title{Day 1, part 2. Text and Math}
+\author{Digital Skills for Research}
+\date{10 May 2022}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Explore the interface of your desktop \TeX~editor}
+
+\begin{itemize}
+	\item line numbers are useful for fixing errors
+	\item use the toolbar to insert typical commands, if you prefer
+	\item right-click on the name of the package to go to its documentation
+	\item use use of auto-complete
+\end{itemize}
+
+\section{Text formatting}
+
+
+\subsection{Languages}
+
+ \href{https://www.overleaf.com/learn/latex/International_language_support}{International language support}
+
+\begin{lstlisting}[breaklines]
+\usepackage[T1, T2A]{fontenc}
+\usepackage[french,russian,main=english]{babel}
+\end{lstlisting}
+
+See specific packages names for individual languages \href{https://github.com/kunilovskaya/malaga_dskills/tree/master/alphabets}{here}. \\ For example, you need \verb|\usepackage{arabtex} and \usepackage[LFE,LAE]{fontenc}| for Arabic.
+
+\begin{description}
+	\item[T1] encoding for Latin script
+	\item[T2A] encoding for Cyrillic script
+\end{description}
+
+\begin{itemize}
+	\item You might want to install languages to your \textbf{local} \TeX distribution on Linux with \\ \verb|sudo apt install texlive-lang-polish| \\
+	or install them all \verb|sudo apt-get install -y texlive-lang-all|
+
+	\item You might need to specifically import fonts for other languages.
+	\item NB! main (or last one) in \verb|\usepackage[french,russian,main=english]{babel}| is the language for automatic structural elements (e.g. Contents)
+	\item In some templates short text snippets in non-main language are inserted with
+	\verb|\foreignlanguage{spanish}{...}| 
+\end{itemize}
+
+Examples in Spanish and Russian:
+
+\begin{center}
+	\begin{quote}
+		\foreignlanguage{spanish}{Sección Introductoria} 
+		
+		\foreignlanguage{russian}{Спасибо.}
+	\end{quote}
+	
+	Sección Introductoria
+	Спасибо.
+\end{center}
+
+\subsection{Fonts and colours}
+
+\begin{description}
+	\item[font style] roman (serif), bold, italics, typewriter, sans serif, small caps respectively in \\
+	\verb|\textrm,\textbf,\textit, \texttt, \textsf, \textsc|
+	
+	e.g. \textsc{Encyclopedia Galactica} 
+	
+	\texttt{Don't Panic}
+	
+	\item[font size] \verb|\tiny, \scriptsize, \footnotesize, \small, \normalsize, \large, \Large, \LARGE, \huge, \Huge| \\
+	e.g. cf. \verb|\huge{text formatting}| and \verb|\tiny{text formatting}|: \\
+	\huge{text formatting} \\
+	\tiny{text formatting}
+	\normalsize
+	
+	\item[underline] \underline{Google strikethrough!}
+	
+	\item[font colour] \verb|{\color{red!50!white}your_coloured_text}| \\
+	 e.g. {\color{red!50!white}my pink text}
+ 
+\end{description}
+
+
+\subsection{Special characters}
+The following characters are reserved to have special meaning in \LaTeX:
+
+\$ \% \& \verb|~| \verb|^| \{ \} \_ $\backslash$ 
+
+To print them literally you need to escape them with backslash ($\backslash$), except
+\begin{itemize}
+	\item for $\backslash$ itself use \verb|$\backslash$|
+	\item for \verb|~| and \verb|^| Use them inside \verb|\verb||| 
+\end{itemize}
+
+\textbf{Formatting conventions:}
+
+\begin{itemize}
+	\item double quotes: tilde key (left uppermost key under Esc) without SHIFT and single quote twice $\rightarrow$ `` and ''
+	\item \verb|\lq| and \verb|\rq| or tilde key + single quote $\rightarrow$ \lq~and \rq or ` and '
+	\item non-breaking space (SHIFT + tilde key): \verb|Fig.~\ref{fig:logo}|
+	\item dots: \verb|\ldots| $\rightarrow$ \ldots
+	\item dash: \verb|--| $\rightarrow$ --
+	\item superscripts and subscripts: \verb|2^2 and CO_2| $\rightarrow$ $2^2$, $CO_2$
+	
+	e.g. Proceedings of the 11\textsuperscript{th} conference\ldots
+	
+	\item accents: \verb|\^{a}, \'{o}, \v{c}, \"{e}, \~{o}| $\rightarrow$ \^{a}, \'{o}, \v{c}, \"{e}, \~{o}
+	\item language-specific ligatures: \verb|\ss{}, \l{}, \L{}| $\rightarrow$ \ss{}, \l{}, \L{}
+\end{itemize}
+
+\textbf{Useful tool: \href{http://detexify.kirelabs.org/symbols.html}{Detexify} (\textcolor{red}{CLICK ME! I am linked!}) symbol table and classifier}
+
+\section{Math}
+
+\subsection{Mathmode}
+
+\begin{itemize}
+	\item inline: \verb|$your_formula$|
+	\item on a separate line: \verb|\[your_formula\]|
+	\item special environment with a counter in label: \verb|\begin{equation}\label{eq:entropy} ... \end{equation}|
+\end{itemize}
+
+This formula $f(x)=5x$ is incorporated in the body of text. 
+
+This is the same formula on a separate line:
+
+\[ f(x)=5x \]
+
+This is the same formula in the environment (notice the number on the right/left!). See equation~\ref{eq:same}. You can move the number to the left by adding leqno as an optional argument to the class definition \verb|\documentclass[a4paper,11pt,leqno]{article}| 
+
+\begin{equation}\label{eq:same}\today
+f(x)=5x
+\end{equation}
+
+\subsection{Fractions}
+\verb|\[\frac{1+\frac{4}{2}}{6} = 0,5\]|
+
+\[\frac{1+\frac{4}{2}}{6} = 0,5\]
+
+\subsection{Brackets}
+\verb|\[ \left(2+\frac{9}{3}\right) \times 5 = 25 \]|
+
+\[ \left(2+\frac{9}{3}\right) \times 5 = 25 \]
+
+\[  [2+3]  \]
+
+\verb|\[ \{2+3\}  \]|
+\[ \{2+3\}  \]
+
+\subsection{Standard functions}
+\verb|$\sin x = 0$, $\cos x = 1$, $\ln x = 5$|
+$\sin x = 0$, $\cos x = 1$, $\ln x = 5$
+
+\subsection{Symbols}
+\verb|$2\times 2 \ne 5$|
+
+$2\times 2 \ne 5$
+
+$A \cap B$, $A \cup B$
+
+\subsection{Characters from other scripts}
+\verb|$\epsilon$, $\phi$|
+
+$\tg \Phi = 1$
+
+$\epsilon$, $\phi$
+
+\bigskip
+
+There are useful tools that reduce the sufferings:
+
+\begin{enumerate}
+	\item \href{https://latexeditor.lagrida.com/}{Online Equation Editor} 
+	\item \textbf{{\color{red}Copy formatted formulas from html source code}} (Inspect $\rightarrow$ Copy $\rightarrow$ Copy element):
+	
+	\href{https://en.wikipedia.org/wiki/Second_law_of_thermodynamics}{Second Law of Thermodynamics}
+	
+	\[\mathrm {d} S={\frac {\delta Q}{T}}-{\frac {1}{T}}\sum _{j}\,\Xi _{j}\,\delta \xi _{j}\]
+\end{enumerate}
+
+\section*{Task 2. Reproduce formatting in a file, inc. formulas}
+\label{task}
+\addcontentsline{toc}{section}{Task 2. Reproduce formatting}
+
+\begin{tcolorbox}[width=\textwidth, colback={yellow!40!white}, title={}, colbacktitle=yellow!60!white, coltitle=black]
+	\begin{itemize}
+		\item Follow the instruction and reproduce text formatting in task1-2.pdf)
+	\end{itemize}
+	
+\end{tcolorbox}%
+
+\end{document}

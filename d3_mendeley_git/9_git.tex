@@ -1,0 +1,256 @@
+% this is source code for one of the sessions in Digital Skills for Research Workshop (EMTTI, University of Wolverhampton)
+% March 2022, Maria Kunilovskaya (mkunilovskaya@gmail.com)
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan, filecolor=magenta]{hyperref} 
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=15mm,
+}
+\setlength\parindent{0pt}
+
+% verbatim environment enhance to provide for code listings
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\footnotesize}
+\usepackage{tcolorbox} 
+\usepackage{wrapfig}
+
+% this redifines \href which by default adds .pdf if it does not see a recorgnisable file extension, wich is the case when a folder is passed
+\makeatletter
+\newcommand\HREF[2]{\hyper@linkurl{#2}{#1}}
+\makeatother
+
+\usepackage{soul}  % strilethrough
+
+\title{Day 3, part 3. Version control and collaboration: Git and GitHub}
+\author{Digital Skills for Research}
+\date{12 May 2022}
+
+
+\begin{document}
+	
+	\clearpage
+	\maketitle
+	\thispagestyle{empty}
+	
+	\tableofcontents 
+
+\section*{}
+
+Familiarity with Git/GitHub is required by employers in translation industry:
+e.g. from a job advert for a project/product manager at Smartling:
+\begin{quotation}
+	\noindent Do you have Git experience? Please give us 3 examples where you used GitHub.\\
+	What do you find more challenging with GitHub?
+\end{quotation}
+
+This session offers a practical and systematic explanation of core functionality of Git and GitHub. \\	
+
+\section{Git: Keeping track of changes}
+
+For software developers, Git allows \textbf{parallel maintenance of older and newer versions} of the product. Each released version is stored as a separate branch of the project. 
+
+For a researcher, Git is a way to \textbf{collaborate and keep track of contributions} from participants as well as \textbf{making your work available} to other researchers. 
+
+\bigskip
+
+Important features:
+\begin{wrapfigure}{r}{0.3333\textwidth}
+	\centering
+	\includegraphics[width=60mm]{pics/linux_git_creator_torvalds.jpg}
+	\caption{Linus Torvalds}
+\end{wrapfigure}
+\begin{itemize}
+	\item by Linus Torvalds (2005), a Finnish-American software engineer, who is the main developer of the Linux kernel. First Linux prototype by released in 1991 when Torvalds was 22.
+	\item OSS (open-source soft)
+	\item de facto standard in academia and industry
+	\item Distributed Version Control System (full history of changes is kept locally and remotely)	
+\end{itemize}
+
+\subsection{Is Git installed in your OS?}
+
+\begin{itemize}
+	\item By default, Git is installed on Linux and macOS computers as a command line option.
+	\item \href{https://git-scm.com/book/en/v2/Getting-Started-Installing-Git}{How to install Git on Windows}
+\end{itemize}
+
+\subsection{HowTo}
+
+\textbf{Start tracking a \textbf{local} project folder}
+
+\begin{enumerate}
+	
+	\item Go into the \HREF{./demo/}{\texttt{demo}} directory containing the project in the terminal (``Open in terminal/command line/cmd'')
+	\item create README\textbf{.md} and \textbf{.}gitignore files in the root of the project
+	\item \verb|git init|
+	\item \verb|git add README.md .gitignore| to add \textbf{\textsc{relevant}} files
+	\item \verb|git commit -m `first commit'|
+\end{enumerate}
+
+Each time you want to update the history of changes in the project, pass \verb|git add| and \verb|git commit| commands (don't forget a descriptive but short message!)
+
+\medskip
+
+\textcolor{red}{Boom! If you look at hidden files in the tracked folder, you will see a .git/}
+
+\section{GitHub: Local and remote, push and pull, auth}
+
+\subsection{Connect to remote URL at GitHub server}
+
+Git associates a remote URL with a name, and your default remote is usually called \textcolor{red}{origin}.
+
+You can only push to two types of URL addresses:
+
+\begin{itemize}
+	\item \textbf{(default)}: An HTTPS URL like https://[hostname]/user/repo.git 
+	\item (not discussed here) An SSH URL, like git@[hostname]:user/repo.git
+\end{itemize}
+
+\textbf{Connect a tracked local project to GitHub}
+
+\begin{itemize}
+	\item Log in to your GitHub account
+	\item Click the new repository button in the top-right
+	\item Click the ``Create repository'' button
+	\item It is easier to give it the same name as the name of folder to connect
+	\item Decide whether you are ready to go public (\textcolor{red}{default!}) with your project
+	\item run the following commands from the local tracked folder in terminal \\
+	
+	\verb|git remote add origin https://github.com/kunilovskaya/demo.git| \\
+	\verb|git push -u origin master|
+\end{itemize}
+
+\textcolor{red}{master} means main branch of the project. \\
+\textcolor{red}{origin master} is main branch of the remote repo (on the server).
+
+\subsection{Auth: username and password/access token/SSH key [and a passphrase])}
+
+Select username wisely! e.g. ssharoff, TharinduDR, ltgoslo, torvalds \\
+
+How passwords and tokens are used: 
+
+\begin{itemize}
+	\item \textbf{website password} is required to create/delete repositories and add changes to them \textbf{in the browser}
+	\item access token is needed to push local content to a remote repo with HTTPS URL \textbf{from the command line}
+	\item SSH key [or a passphrase to it] is needed to push content to a remote repo with SSH URL	
+\end{itemize}
+
+See detailed and official  \href{https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/about-remote-repositories}{HowTo} \\
+
+\textcolor{red}{NB!} Password-based authentication for Git has been removed on August 13, 2021.
+
+\bigskip
+
+\textbf{Permanently authenticating with Git repositories:} \\
+Locally stored access keys apply to all projects.
+\begin{enumerate}
+	\item create a config file \\
+	\begin{lstlisting}
+	git config credential.helper store
+	git push https://github.com/kunilovskaya/dskills_workshop.git
+	\end{lstlisting}
+	\item give your username and the new key to save it remotely
+	\item set a longer cache timeout than the default 15 mins (e.g. 2 hours or 5 days=7200 min) to avoid accessing the txt file with the \textcolor{red}{unencrypted password stored on your local disk} each time you push
+	\begin{lstlisting}
+	git config --global credential.helper 'cache --timeout 7200' 
+	\end{lstlisting}
+	
+\end{enumerate}
+
+Instructions \href{https://stackoverflow.com/questions/8588768/how-do-i-avoid-the-specification-of-the-username-and-password-at-every-git-push}{here}
+
+\subsection{Typical workflow}
+
+\begin{enumerate}
+	\item publish local changes in files (or \verb|git rm -r folder-name|) to the website
+	\begin{itemize}
+		\item \verb|git add my_file1.py my_file2.py|
+		\item \verb|git commit -m `added export to tsv'|
+		\item \verb|git push| (if you have set up automatic authentification, you will not be asked for username and password)
+	\end{itemize}
+	\item get changed made on the remote \\
+	(if you know that someone might have pusshed to your repo, pull changes first to avoid conflicts)
+	\begin{itemize}
+		\item \verb|git pull|
+	\end{itemize}
+\end{enumerate}
+
+\subsection{PyCharm-Git(Hub) intergration}
+
+PyCharm 2021.3 (Professional Edition) \\
+
+File $\rightarrow$ Settings $\rightarrow$ Version control $\rightarrow$ Github 
+
+\begin{itemize}
+	\item Log in via Github
+	\item Log in with Token
+	\item (a tickbox) clone git repo using ssh
+\end{itemize}
+
+\subsection{Overleaf-Git(Hub) intergration}
+
+\textbf{GitHub Sync is a premium feature}
+
+\begin{center}
+	
+\includegraphics[width=10cm]{pics/try_it_for_free.png}
+
+\end{center}
+
+ 
+
+\section{Markdown and arranging repos}
+
+\begin{enumerate}
+	\item don't push everything: \st{git add .} even if .gitignore exists
+	\item don't push data and output (mind 2MB limit for one file upload)
+	\item create a clear description in README (using markdown); see \href{https://github.com/kunilovskaya/dskills_workshop/blob/main/README.md}{my example}
+\end{enumerate}
+
+\textcolor{red}{markdown (.md)} is a markup language for creating formatted text using a plain-text editor.
+
+One useful \href{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}{Markdown Cheatsheet} \\
+
+How to format:
+\begin{itemize}
+	\item headings
+	\item emphasis
+	\item line breaks
+	\item lists
+	\item links
+	\item tables
+	\item code listings\\
+	\begin{lstlisting}
+	```python
+		s = "Python syntax highlighting"
+		print(s)
+	```
+	\end{lstlisting}
+	\item horizontal rule
+	
+\end{itemize}
+
+\section*{Task 3-8. Start a private repo and add `kunilovskaya' as a collaborator}
+\label{task}
+\addcontentsline{toc}{section}{Task 3-8. Creat a repo}
+
+\begin{tcolorbox}[width=\textwidth, colback={yellow!40!white}, title={}, colbacktitle=yellow!60!white, coltitle=black]
+	\begin{itemize}
+		\item set up Git tracking for a local folder (with a README);
+		\item push it to GitHub;  
+		\item invite a collaborator;
+		\item make changes on the server (in browser)
+		\item pull remote changers
+		\item make local changes and push them (don't forget to refresh the page!)
+	\end{itemize}
+	
+\end{tcolorbox}%
+
+\end{document}

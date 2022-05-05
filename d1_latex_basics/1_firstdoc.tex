@@ -1,0 +1,194 @@
+\documentclass[a4paper,11pt]{article}  % class definition can load a custom class file, for example, llncs.cls for the JNLE
+
+%\usepackage[review]{emnlp2021} % this is an example of a style file, provided by a conference: emnlp2021.sty
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=15mm,
+}
+\usepackage{tcolorbox}  % to produce color boxes
+
+\usepackage{blindtext} % gobbledygook
+
+\usepackage{listings}  % a verbatim environment which can break lines
+
+\title{Day1, part 1: Why \TeX~and first doc}
+\author{Digital Skills for Research \\ 
+	email: \href{m.kunilovskaia@wlv.ac.uk}{m.kunilovskaia@wlv.ac.uk} \\ 
+	RGCL, University of Wolverhampton, UK}
+\date{10 May 2022}
+
+\setlength\parindent{0pt} % set all indents to 0
+
+\begin{document}
+
+
+\maketitle
+
+\tableofcontents
+
+%--------------------
+% General information
+% -------------------
+
+\section{What's \TeX}
+% 10 min
+\begin{tcolorbox}[width=\textwidth,colback={yellow!50!white}]
+	\TeX is a typesetting language. It makes text look good on the page. 
+	\medskip
+	
+	A *.tex file is a plain text file which contains text with explicit formatting commands (e.g. \texttt{$\backslash$textbf}). WYSIWYM (what you see is what you mean) concept.
+	
+	The *.tex file has to be run by a compiler to produce formatted version.
+	\medskip
+	
+	It is required by many publishing venues, makes inputting mathematics, bibliographies and cross-referencing easier, ensures consistency across sections.
+	
+\end{tcolorbox}   
+
+\vspace{1em}
+
+\textbf{\Large{\TeX~can broadly refer to any of the related components:}}
+
+\begin{description}
+	\item[Distributions] coherent collections of TeX-related software, e.g. MiKTeX, TeXLive, MacTeX
+	\item[Text editors] IDE, software to create and edit plain text documents, generic (notepad, gedit, nano, vim) or speciaised (\href{http://texstudio.sourceforge.net/}{TeXStudio}, \href{https://www.xm1math.net/texmaker/}{Texmaker}, inc. online editors such as \href{https://www.overleaf.com}{Overleaf})
+	\item[Compilers] executable binaries, which are rum on *.tex to produce formatted output (a PDF file), e.g. pdflatex (can be run in terminal: \texttt{pdflatex main.tex})lauren
+	\item[Formats] TeX-based languages in wa verbatim environment which can break lineshich one actually writes documents, e.g. LaTeX, plain TeX
+	\item[Packages] add-ons to the basic TeX system, developed independently, providing additional typesetting features (e.g. fonts); stored in \href{https://ctan.org/}{CTAN network}
+\end{description}
+
+\vspace{1em}
+
+\newpage
+
+\textbf{\Large{Examples of complete desktop systems:}}\label{desktops}
+\begin{itemize}
+	\item MikTeX + Texmaker for Windows (\href{https://www.youtube.com/watch?v=a verbatim environment which can break linesoI8W4MvFo1M}{HowTo})
+	\item TeXLive + TeXStudio for Linux (sudo apt install texlive \& sudo apt install texstudio)
+	\item MacTeX for MacOSX 
+\end{itemize}
+
+\section{Online solution: Overleaf account and project}
+
+Go to \href{https://www.overleaf.com/}{Overleaf}, register an account and start a blank project. Boom! It comes with some basic predefined structure!
+
+\medskip
+
+\textbf{A brief Overleaf tour}:
+
+\begin{itemize}
+	\item Recompile often!!!
+	\item Account and project folders 
+	\item Sharing and Review
+	\item Main .tex
+	\item Notice GitHub and Mendeley Integration
+	\item {\color{green}Open an example in Overleaf}
+	\item Upload .zip and Download PDF/zip
+\end{itemize}
+
+%--------------------
+% Document structure
+% -------------------
+
+\section{First document: layout and structure}
+
+A .tex consists of 
+\begin{itemize}
+	\item \emph{preamble} contains:
+	\begin{itemize}
+		\item[-] classes (e.g. \texttt{llncs.cls})
+		\item[-] styles (\texttt{emnlp2021.sty} for \verb|\usepackage[review]{emnlp2021}|) 
+		\item[-] packages
+		\item[-] defined functions (macros)
+	\end{itemize}
+	\item \emph{main code} (inside \verb|\begin{document} ... \end{document}|) with textual content, math, pics, tables interspersed with formatting commands, inc. environment%
+	\item \emph{commented content}: use \% to comment out lines and \texttt{CTRL + T} to toggle comment/uncomment selected lines
+\end{itemize}
+
+\subsection{Moving text around}
+
+Copy-paste this text above and try out basic behaviour and commands:
+
+\bigskip
+% Here is some text to move around
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec ullamcorper, felis non sodales commodo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede. Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut porttitor. Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis fringilla tristique neque. Sed interdum libero ut metus. Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit amet ante lobortis sollicitudin. Praesent blandit blandit mauris. Praesent lectus tellus, aliquet aliquam, luctus a, egestas a, turpis. Mauris lacinia lorem sit amet ipsum. Nunc quis urna dictum turpis accumsan semper.
+
+\bigskip
+
+\begin{itemize}
+	\item \emph{Blank line} (\verb|\\|) is a new paragraph separator; it affects the behaviour of space-related commands.
+	\item Insert customised vertical or horizontal space with \emph{commands}:
+	\begin{itemize}
+		\item[a)] \verb|\vspace{.5cm}, \hspace{1em}, \vfill|
+		\item[b)] \verb|\bigskip, \medskip|
+	\end{itemize}
+	\item \textbf{New paragraphs (except the first) are indented by default.}  Use \verb|\usepackage{indentfirst}| to indent the first paragraph in addition to the default.
+	\item Add \verb|\setlength\parindent{0pt}| \emph{to preamble} to lose all indentation
+	\item Use \verb|\newpage| command to force a new page
+	\item centering with a command \verb|\centering| or an environment \verb|\begin{center}|
+	\item Use \emph{environments} to create ragged right/left text (e.g. \verb|\begin{flushright} ... \end{flushright}|)
+	
+\end{itemize}
+
+\subsection{Adding structural elements}
+
+\begin{enumerate}
+	\item frontmatter (\verb|\title{}, \author{}, \date{}|) in preamble; called with \verb|\maketitle|
+	\item \verb|\section{First Section}\label{sec:one}, \subsection{Your subtitle}|
+	\item \verb|\begin{abstract} ... \end{abstract}|
+	\item \verb|\tableofcontents| and add unnumbered sections to TOC with \\ \verb|\addcontentsline{toc}{section}{your_name_of_the_section}|. Compile several times!
+	\item \verb|\footnote[**]{your text in foot}|
+	\item {\color{red}columns} in part of the document: put \verb|\usepackage{multicol}| to the preamble + \\ \verb|\begin{multicols}{2} ... \columnbreak ... end{multicols}|
+%	\item {\color{red}boxed text}: \verb|\usepackage{tcolorbox}| + \\ \verb|\begin{tcolorbox}[width=\textwidth, colback={yellow!40!white},| \\ \verb|title={}, colbacktitle=yellow!60!white, coltitle=black] ... \end{tcolorbox}|
+	
+\end{enumerate}
+
+\subsection{Layout}
+% 10 min
+
+\textbf{Setting the page size in preamble with}:
+
+\bigskip
+
+\verb|\usepackage[a4paper, total={6in, 8in}]{geometry}|
+
+\bigskip
+
+or
+
+\bigskip
+
+\begin{lstlisting}[breaklines]
+\usepackage{geometry}
+\geometry{
+a4paper,
+total={170mm,257mm},
+left=20mm,
+top=15mm,
+}
+\end{lstlisting}
+
+\section*{Task 1. Setting up editors and standard paper template}
+\label{task}
+\addcontentsline{toc}{section}{Task 1}
+
+\begin{tcolorbox}[width=\textwidth, colback={yellow!40!white}, title={}, colbacktitle=yellow!60!white, coltitle=black]
+	\begin{itemize}
+		\item Get the software: select and install a LaTeX distribution and an editor (see discussion on page \ref{desktops})
+		\item Create locally a two-page document with a typical research paper structure and symmetric margins (top 2cm, left 2cm); 
+		\item Use various elements of structure: table-of-contents, a footnote, columns, additional space 
+		\item Zip the project, upload it to Overleaf and share with m.kunilovskaia@wlv.ac.uk
+	\end{itemize}
+	
+\end{tcolorbox}%
+
+
+\end{document}
