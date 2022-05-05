@@ -1,0 +1,17 @@
+*.toc
+*.bbl
+*.blg
+*.log
+*.out
+*.aux
+*.nav
+*.snm
+*.gz
+*.vrb
+
+task2.tex
+
+github/
+latex/
+mendeley/
+temp/

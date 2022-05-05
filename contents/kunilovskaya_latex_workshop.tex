@@ -1,0 +1,158 @@
+% this is source code for one of the sessions in Digital Skills for Research Workshop (EMTTI, University of Wolverhampton)
+% see an updated and restructured version of the workshop as run in Malaga, 10-12 May 2022 saved as a malaga_dskills COPY of the repository
+% March 2022, Maria Kunilovskaya (mkunilovskaya@gmail.com)
+
+%--------------------
+% Preamble
+
+% Declare the type of document
+% -------------------
+
+\documentclass[a4paper,12pt]{article} % other options: [,twocolumn,leqno]{report, book, beamer} 
+
+%--------------------
+% Import packages
+% -------------------
+
+\usepackage[utf8]{inputenc}  % specify the encoding
+\usepackage[T1]{fontenc}
+\usepackage{hyperref} % allow cross-referencing
+
+\usepackage{geometry} % set the layout
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+\usepackage{xcolor} % alow color for text
+\usepackage{tcolorbox} % make boxes
+\usepackage{multicol} % columns
+
+\usepackage{tipa} % allow use of phonetic notation
+\usepackage{newunicodechar}
+%\newunicodechar{a}{ɑ}
+%\newunicodechar{ː}{:}
+\usepackage{graphicx} % insert pictures
+%\graphicspath{{images/}{pics/}}  % from folders with .png, .jpj, .gif, .eps
+
+%--------------------
+% Define new commands and settings
+% -------------------
+
+% TeX logo as defined by Donald Knuth in the TeXbook (1984)
+\def\TeX{{\rm T\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX }}
+\newcommand{\llogo}{\LaTeX}
+
+\setlength\parindent{0pt} % don't indent new paragraphs
+
+%--------------------
+% Setup the title of the document
+% -------------------
+
+\title{\vspace{-4em} Digital Skills for Research \\ \LaTeX, Mendeley/Zotero and Github}
+\author{Maria Kunilovskaya}
+\date{%
+	University of Malaga, EM TTI Cohorts 2 and 3\\%
+	---\\%
+	10-12 May, 2022}
+
+\begin{document}
+	
+%remove numbering from the first page
+\clearpage\maketitle
+\thispagestyle{empty}	
+\maketitle
+
+\vspace{-2em}
+
+\section*{Day 1. Setup, basic commands and environments}
+\begin{enumerate}
+	\item Why \TeX and first doc 
+		\begin{itemize}
+			\item What's \TeX (distributions, editors, engines, formats, templates)
+			\item Overleaf account and project
+			\item First document (class, packages, layout, title, sections, margins, columns)
+	\end{itemize} 
+	\item Text and math
+		\begin{itemize}
+			\item Text formatting
+			\item Special characters
+			\item Math
+		\end{itemize}
+	\item Lists, tables and figures
+		\begin{itemize}
+			\item Environments
+			\item Tables
+			\item Graphics and drawing
+		\end{itemize}
+\end{enumerate}
+\section*{Day 2. Cross-refs, templates and beamer}
+\begin{enumerate}
+	\item Cross-referencing and customisation 
+		\begin{itemize}
+			\item Internal and external links
+			\item Own commands
+		\end{itemize}
+	\item Building from templates
+		\begin{itemize}
+			\item Templates and big projects
+			\item Preliminaries on bibliographic references
+		\end{itemize}
+	\item Presentations and posters 
+		\begin{itemize}
+			\item Beamer themes: layout and colour
+			\item Slides-specific commands
+			\item Producing posters and own .sty 
+		\end{itemize}
+\end{enumerate}
+	
+\section*{Day 3. Bibliography and Github}
+\begin{enumerate}
+	\item Reference (citation) styles
+		\begin{itemize}
+			\item Morphology of a bibliographic description (APA, Chicago and Harvard)
+			\item .bib files and bibliography engines
+			\item In-text and end-of-text referencing commands
+		\end{itemize}%
+	\item Reference management: Mendeley or Zotero
+		\begin{itemize}
+			\item Basic uses and setting up
+			\item Integration (word processor, browser, Latex project)
+			\item Library use and maintenance 
+		\end{itemize}%
+	\item Version control and collaboration: Git and GitHub
+		\begin{itemize}
+			\item Keeping track of changes
+			\item Local and remote, push and pull, auth
+			\item Markdown and arranging repos
+		\end{itemize}
+\end{enumerate}
+\begin{center}
+
+\begin{tcolorbox}[width=\textwidth, title={\textbf{Recommended resources}}, colbacktitle=white, coltitle=black, colback={white}]
+	\begin{itemize}
+	\item \textbf{LaTeX}: \href{https://tug.org/begin.html}{\TeX UsersGroup} and \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{Overleaf} tutorials
+	\item \textbf{GitHub}: \href{https://git-scm.com/book/en/v2}{Pro Git book by Scott Chacon and Ben Straub} and \href{https://docs.github.com/en/get-started}{Get started from github.com}
+	\item \textbf{Mendeley}: \href{https://www.mendeley.com/guides}{Official Guides}
+	
+\end{itemize}
+	
+\end{tcolorbox}%
+
+\bigskip
+
+\begin{tcolorbox}[width=\textwidth, title={\textbf{Historical Notes and Trivia}}, colbacktitle=yellow!20, coltitle=black, colback={yellow!20}]
+	\begin{itemize}
+		\item \TeX is a typesetting system which was designed by Donald Knuth and first released in 1978.
+		\item The letters of the name are meant to represent the capital Greek letters tau, epsilon, and chi ($\tau\epsilon\chi$), Greek for both ``art'' and ``craft'' (\textit{tech}nology).
+		\item The word \LaTeX is an abbreviation of ``Lamport's TeX'', named after Leslie Lamport. He added and described \textbf{a collection of macros} (1986) to the original \TeX.
+		\item  pronounced as \textipa{/"la:tEk/} or \textipa{/"leItEk/} 
+		\item It is also a pun with the English word \textit{latex} (try it in image google search)
+	\end{itemize}
+	
+\end{tcolorbox}%
+
+\end{center}
+
+\end{document}
