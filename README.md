@@ -1,5 +1,11 @@
 ## Digital Skills for Research
 
+https://github.com/kunilovskaya/malaga_dskills
+
+
+<img src="https://github.com/kunilovskaya/malaga_dskills/blob/master/contents/malaga_dskills_qr.png" width="400"/>
+
+
 Contents of the workshop
 
 University of Malaga, EM TTI 
