@@ -3,10 +3,17 @@
 https://github.com/kunilovskaya/malaga_dskills
 
 
-<img src="https://github.com/kunilovskaya/malaga_dskills/blob/master/contents/malaga_dskills_qr.png" width="400"/>
+<img src="https://github.com/kunilovskaya/malaga_dskills/blob/master/contents/malaga_dskills_qr.png" width="300"/>
 
 
-Contents of the workshop
+- TeX is a typesetting system which was designed by Donald Knuth and first released in 1978.
+- The letters of the name are meant to represent the capital Greek letters *tau, epsilon, and chi*, Greek for 'art' and 'craft' (*tech*nology).
+- The word LaTeX is an abbreviation of 'Lamport's TeX', named after Leslie Lamport. He added and described **a collection of macros** (1986) to the original TeX.
+- pronounced as /'la:tEk/ or /'leItEk/
+- It is also a pun with the English word *latex* (try it in image google search)
+
+
+##Contents of the workshop
 
 University of Malaga, EM TTI 
 
