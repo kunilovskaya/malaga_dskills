@@ -13,7 +13,7 @@ https://github.com/kunilovskaya/malaga_dskills
 - It is also a pun with the English word *latex* (try it in image google search)
 
 
-##Contents of the workshop
+## Contents of the workshop
 
 University of Malaga, EM TTI 
 
