@@ -2,9 +2,9 @@
 
 https://github.com/kunilovskaya/malaga_dskills
 
-
+<p align="center">
 <img src="https://github.com/kunilovskaya/malaga_dskills/blob/master/contents/malaga_dskills_qr.png" width="300"/>
-
+</p>
 
 - TeX is a typesetting system which was designed by Donald Knuth and first released in 1978.
 - The letters of the name are meant to represent the capital Greek letters *tau, epsilon, and chi*, Greek for 'art' and 'craft' (*tech*nology).
