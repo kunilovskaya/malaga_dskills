@@ -29,21 +29,33 @@
 \usepackage{tabularx,booktabs}
 \usepackage{multirow}
 
-%%% Bibliography (makes changes to cite command and at the end of the doc)
+%%% Bibliography (makes changes to cite command at the end of the doc)
+
 %====================
-% Switch to biblatex
-% intext: \autocite{}, \textcite{knuth1984}, \autocite[\ppno~347--348]{RobertAdams1991}
-% references list: \printbibliography[title=Cited]
-%====================
+% BibLaTex setup
+% imports:
 \usepackage[style=authoryear,backend=biber]{biblatex}
-\addbibresource{7\_NLP-tasks-complexity.bib}
+\addbibresource{mybibs.bib}
+
+% intext: \autocite{}, \textcite{knuth1984}, \autocite[\ppno~347--348]{RobertAdams1991}
+
+% references list (use this at the end of the main code): 
+% \printbibliography[title=Cited]
+
 
 %========================
-% Use bibtex with natbib
-% intext: \citep{}, \citet{}
-% references list (at the end of doc): \bibliography{7_NLP-tasks-complexity.bib}
-%========================
+% bibtex with natbib setup
+
+% imports:
 %\usepackage[round,sort,comma]{natbib}
+
+% intext: \citep{}, \citet{}
+
+% references list (at the end of main code):
+%\bibliographystyle{plainnat} % or the name of your/provided .bst
+% \bibliography{mybibs.bib}
+%========================
+
 
 %\usepackage{notoccite} % uncomment to print all items from .bib
 
@@ -82,8 +94,8 @@ If not, it helps to know \emph{what you want to see} in the end.
 
 \medskip
 
-Compare entries for a paper published in conference proceedings (\emph{book form}).\\
-NB! Book form (not journal form proceedings) are signalled by an ISBN as opposed to  ISSN for journals, by the presence of editors and no volume number.\\
+\textbf{Compare entries for a paper published in conference proceedings} (\emph{book form}).\\
+NB! Book form (not journal form proceedings) are signalled by an ISBN (International Standard **Book** Number) as opposed to  ISSN (International Standard **Serial** Number) for journals, by the presence of editors and no volume number.\\
 \medskip
 Note the use of:
 
@@ -127,7 +139,7 @@ Note the use of:
 	
 \textbf{Ways to store bibliographic records:}\\
 
-Note unique \textcolor{red}{``citation key''}: lamport94, greenwade93 for each item 
+* Note unique \textcolor{red}{``citation key''}: lamport94, greenwade93 for each item 
 
 \begin{enumerate}
 \item Embedded in the main document
@@ -149,18 +161,21 @@ Note unique \textcolor{red}{``citation key''}: lamport94, greenwade93 for each i
 \item Stored in an \href{run:./7_NLP-tasks-complexity.bib}{external .bib file} (e.g. in a BibTex format)
 
 \medskip
-\textbf{\textcolor{red}{There are two major formats for these databases: (older) BibTeX and BibLaTex.}}\\
-Each format has a dedicated backend, i.e. executable file aka engine to process the database: bibtex and biber, respectively.\\
 
-\newpage
+\textbf{\textcolor{red}{There databases can be processed with}}: \textbf{bibtex} (older) or \textbf{biber} programme (i.e. dedicated \textbf{backends} aka engines).
+
+\textbf{biber} uses \textbf{BibLaTex package} to format citations; the respective databases can have more fields and are more adopted for the use in humanities (e.g. \textbf{ibid} conventions).\\
+\textbf{bitex} uses \textbf{natbib package}.
+Venues which use \textbf{bibtex-natbib} provide .bst and will not accept BibLaTex-based bibliography.
+
 
 
 \subsection{General setup for automatic referencing}
 
 \begin{enumerate}
-	\item import bibliography manager (natbib) 
-	\item specify the stylefile (default or imported from custom .bst)
-	\item provide the database (embeded or .bib) and generate References (only cited works) or Bibliography (everything in the file)
+	\item import bibliography manager (natbib/biblatex) 
+	\item (common, bibtex-only) specify the stylefile (default or imported from custom .bst)
+	\item provide the database (embeded or .bib) and generate References (only cited works) or Bibliography (everything in the .bib file)
 
 \end{enumerate}
 	\textcolor{red}{NB!} compatibility between managers, commands and styles can be limited, use recommended combinations
@@ -183,7 +198,7 @@ Each format has a dedicated backend, i.e. executable file aka engine to process 
 
 {\Large{\textbf{Setup and Usage}}}
 
-The formats are mutually convertible and compatible, but use different commansa for in-text citations and references list induction.\\
+The formats are mutually convertible and compatible, but use different commands for in-text citations and references list induction.\\
 
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!85!gray, title=\textbf{Bibtex},center title, toptitle=2mm, bottomtitle=2mm]
@@ -315,33 +330,39 @@ Check out: \href{https://www.mybib.com/tools/harvard-referencing-generator}{Harv
 			\begin{itemize}
 				\item Link Mendeley account to your Overleaf account
 				\item Get bibliographic descriptions of several items you plan to read and put them into a shared folder in Mendeley
-				\item Create the project .bib from the folder contents (see Figure~\ref{fig:integrate})
-				\item (optional) Can you tweak Mendeley to make use of the field \verb|annote = {These are my take-aways},| which pulls your Notes for the item in Mendeley?
 			\end{itemize}
 		\item In the source code, which you are encouraged to share with m.kunilovskaya@wlv.ac.uk, use your own words to comment the usage of the packages in the preamble.
 	\end{enumerate}
 	
 \end{tcolorbox}%
 
-%Just adding three citeations~\citep{Scarton2018} to generate a short References list~\cite[p.~215]{Tani2022}. This is a citetion intergrated in text:~\citet{Alva-Manchego2021}. 
-Just adding three citeations~\autocite{Scarton2018} to generate a short References list~\textcite[p.~215]{Tani2022}. This is a citetion intergrated in text:~\textcite{Alva-Manchego2021}. 
+%========================
+% bibtex with natbib setup
+
+%Just adding three citations~\citep{Scarton2018} to generate a short References list~\cite[p.~215]{Tani2022}. This is a citation intergrated in text:~\citet{Alva-Manchego2021}.
+
+%====================
+% BibLaTex setup 
+%Just adding three citation~\autocite{Scarton2018} to generate a short References list~\textcite[p.~215]{Tani2022}. This is a citation intergrated in text: \textcite{Alva-Manchego2021} demonstrated that $\dots$. 
 
 \bigskip
 
-If you are moving between BibTex and BibLaTex, do delete the temporary files and compile several times before despairing. 
+NB! If you are moving between BibTex and BibLaTex, do delete the temporary files and compile several times before despairing. 
 
 
 %\nocite{*}
 
 %========================
-% If bibtex with natbib
-%========================
-%\bibliographystyle{plainnat}
+% bibtex with natbib setup
+
+%\bibliographystyle{plainnat}  % apalike
 %\bibliography{7_NLP-tasks-complexity.bib}
 
-%========================
-% If biblatex
-%========================
+
+
+%====================
+% BibLaTex setup
+
 %\renewcommand*{\bibfont}{\normalsize}
 %\renewcommand*{\nameyeardelim}{\addcomma\space}
 %\setlength\bibitemsep{10pt}
