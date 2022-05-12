@@ -51,7 +51,6 @@ e.g. from a job advert for a project/product manager at Smartling:
 	What do you find more challenging with GitHub?
 \end{quotation}
 
-This session offers a practical and systematic explanation of core functionality of Git and GitHub. \\	
 
 \section{Git: Keeping track of changes}
 
@@ -61,14 +60,14 @@ For a researcher, Git is a way to \textbf{collaborate and keep track of contribu
 
 \bigskip
 
-Important features:
+About Git:
 \begin{wrapfigure}{r}{0.3333\textwidth}
 	\centering
 	\includegraphics[width=60mm]{pics/linux_git_creator_torvalds.jpg}
 	\caption{Linus Torvalds}
 \end{wrapfigure}
 \begin{itemize}
-	\item by Linus Torvalds (2005), a Finnish-American software engineer, who is the main developer of the Linux kernel. First Linux prototype by released in 1991 when Torvalds was 22.
+	\item by Linus Torvalds (2005), a Finnish-American software engineer, who is the main developer of the Linux kernel. First Linux prototype was released in 1991 when Torvalds was 22.
 	\item OSS (open-source soft)
 	\item de facto standard in academia and industry
 	\item Distributed Version Control System (full history of changes is kept locally and remotely)	
@@ -154,7 +153,7 @@ Locally stored access keys apply to all projects.
 	\item create a config file \\
 	\begin{lstlisting}
 	git config credential.helper store
-	git push https://github.com/kunilovskaya/dskills_workshop.git
+	git push https://github.com/kunilovskaya/demo.git
 	\end{lstlisting}
 	\item give your username and the new key to save it remotely
 	\item set a longer cache timeout than the default 15 mins (e.g. 2 hours or 5 days=7200 min) to avoid accessing the txt file with the \textcolor{red}{unencrypted password stored on your local disk} each time you push
@@ -164,7 +163,7 @@ Locally stored access keys apply to all projects.
 	
 \end{enumerate}
 
-Instructions \href{https://stackoverflow.com/questions/8588768/how-do-i-avoid-the-specification-of-the-username-and-password-at-every-git-push}{here}
+Detailed instructions are \href{https://stackoverflow.com/questions/8588768/how-do-i-avoid-the-specification-of-the-username-and-password-at-every-git-push}{here}
 
 \subsection{Typical workflow}
 
@@ -182,37 +181,18 @@ Instructions \href{https://stackoverflow.com/questions/8588768/how-do-i-avoid-th
 	\end{itemize}
 \end{enumerate}
 
-\subsection{PyCharm-Git(Hub) intergration}
+\textbf{Good practices:}
+\begin{enumerate}
+	\item don't push everything: \st{git add .} even if .gitignore exists
+	\item don't push data and output (mind 2MB limit for one file upload)	
+	\item intergrate with PyCharm
+	\item create a clear description in README (using markdown); see \href{https://github.com/kunilovskaya/malaga_dskills}{my example}
 
-PyCharm 2021.3 (Professional Edition) \\
-
-File $\rightarrow$ Settings $\rightarrow$ Version control $\rightarrow$ Github 
-
-\begin{itemize}
-	\item Log in via Github
-	\item Log in with Token
-	\item (a tickbox) clone git repo using ssh
-\end{itemize}
-
-\subsection{Overleaf-Git(Hub) intergration}
-
-\textbf{GitHub Sync is a premium feature}
-
-\begin{center}
-	
-\includegraphics[width=10cm]{pics/try_it_for_free.png}
-
-\end{center}
-
- 
+\end{enumerate}
 
 \section{Markdown and arranging repos}
 
-\begin{enumerate}
-	\item don't push everything: \st{git add .} even if .gitignore exists
-	\item don't push data and output (mind 2MB limit for one file upload)
-	\item create a clear description in README (using markdown); see \href{https://github.com/kunilovskaya/dskills_workshop/blob/main/README.md}{my example}
-\end{enumerate}
+
 
 \textcolor{red}{markdown (.md)} is a markup language for creating formatted text using a plain-text editor.
 
