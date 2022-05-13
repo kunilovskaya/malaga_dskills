@@ -34,8 +34,8 @@
 %====================
 % BibLaTex setup
 % imports:
-\usepackage[style=authoryear,backend=biber]{biblatex}
-\addbibresource{mybibs.bib}
+% \usepackage[style=authoryear,backend=biber]{biblatex}
+% \addbibresource{mybibs.bib}
 
 % intext: \autocite{}, \textcite{knuth1984}, \autocite[\ppno~347--348]{RobertAdams1991}
 
@@ -47,7 +47,7 @@
 % bibtex with natbib setup
 
 % imports:
-%\usepackage[round,sort,comma]{natbib}
+\usepackage[round,sort,comma]{natbib}
 
 % intext: \citep{}, \citet{}
 
@@ -339,25 +339,23 @@ Check out: \href{https://www.mybib.com/tools/harvard-referencing-generator}{Harv
 %========================
 % bibtex with natbib setup
 
-%Just adding three citations~\citep{Scarton2018} to generate a short References list~\cite[p.~215]{Tani2022}. This is a citation intergrated in text:~\citet{Alva-Manchego2021}.
+Just adding three citations~\citep{Scarton2018} to generate a short References list~\citet[p.~215]{Battisti2020}. This is a citation integrated in text:~\citet{Alva-Manchego2020}.
 
 %====================
-% BibLaTex setup 
-%Just adding three citation~\autocite{Scarton2018} to generate a short References list~\textcite[p.~215]{Tani2022}. This is a citation intergrated in text: \textcite{Alva-Manchego2021} demonstrated that $\dots$. 
+% BibLaTex setup
 
 \bigskip
 
-NB! If you are moving between BibTex and BibLaTex, do delete the temporary files and compile several times before despairing. 
+% Just adding three citation~\autocite{Scarton2018} to generate a short References list~\textcite[p.~215]{Battisti2020}. This is a citation integrated in text:~\textcite{Alva-Manchego2020}. 
 
 \addcontentsline{toc}{section}{References}
-
-%\nocite{*}
+% \nocite{*}
 
 %========================
 % bibtex with natbib setup
 
-%\bibliographystyle{plainnat}  % apalike
-%\bibliography{7_NLP-tasks-complexity.bib}
+\bibliographystyle{apalike} % plainnat
+\bibliography{mybibs.bib}
 
 
 
@@ -365,10 +363,10 @@ NB! If you are moving between BibTex and BibLaTex, do delete the temporary files
 % BibLaTex setup
 
 %\renewcommand*{\bibfont}{\normalsize}
-%\renewcommand*{\nameyeardelim}{\addcomma\space} 
+%\renewcommand*{\nameyeardelim}{\addcomma\space}
 %\setlength\bibitemsep{10pt}
 
-\printbibliography[title=Cited Works]
+% \printbibliography[title=Cited Works]
 
 
 \end{document}
